@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  dbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: dbeaver-cloud
+    environment:
+      - VIRTUAL_HOST=dbeaver.loc
+      - VIRTUAL_PORT=8978
+    env_file:
+      - ./.env
+    ports:
+      - 8979:8978
+    volumes:
+      - ./workspace:/opt/cloudbeaver/workspace
+    networks:
+      - docker-net
+networks:
+  docker-net:
+    external: ${NET_EXTERNAL}
