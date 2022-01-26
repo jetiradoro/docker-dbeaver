@@ -5,7 +5,7 @@ services:
     image: dbeaver/cloudbeaver:latest
     container_name: dbeaver-cloud
     environment:
-      - VIRTUAL_HOST=dbeaver.loc
+      - VIRTUAL_HOST=${DOMAIN}
       - VIRTUAL_PORT=8978
     env_file:
       - ./.env
