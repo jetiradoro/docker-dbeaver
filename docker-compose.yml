@@ -15,6 +15,14 @@ services:
       - ./workspace:/opt/cloudbeaver/workspace
     networks:
       - docker-net
+    deploy:
+      resources:
+        limits:
+          cpus: ${LIMIT_CPU}
+          memory: ${LIMIT_MEM}
+
 networks:
   docker-net:
     external: ${NET_EXTERNAL}
+
+
